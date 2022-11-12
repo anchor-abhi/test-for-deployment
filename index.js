@@ -11,7 +11,9 @@ app.use(express.json());
 app.use("/message", messageController);
 app.use("/contact", contactController);
 
+//serving the frontend
 app.use(express.static(path.join(__dirname, "./client/build")));
+
 app.get("*", function (_, res) {
   res.sendFile(
     path.join(__dirname, "./client/build/index.html"),
